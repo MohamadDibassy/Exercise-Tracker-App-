@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link,Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navbar from "./components/navbar.component"
@@ -15,11 +14,13 @@ function App() {
       <div className="container">
         <Navbar />
         <br/>
-        <Route exact path="/"  component={ExercisesList} />
-        <Route exact path="/edit/:id"  component={EditExercise} />
-        <Route exact path="/create"  component={CreateExercise} />
-        <Route exact path="/user"  component={CreateUser} />
-      </div>
+        <Routes>
+          <Route path="/" exact element={<ExercisesList/>} />
+          <Route path="/edit/:id" element={<EditExercise/>} />
+          <Route path="/create" element={<CreateExercise/>} />
+          <Route path="/user" element={<CreateUser/>} />
+        </Routes>
+       </div>
     </Router>
   );
 }
