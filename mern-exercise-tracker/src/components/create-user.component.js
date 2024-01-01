@@ -4,6 +4,8 @@ const punycode = require('punycode');
 
 
 export default class CreateUser extends Component {
+
+  
   constructor(props) {
     super(props);
     this.onChangeUsername = this.onChangeUsername.bind(this);
@@ -24,9 +26,8 @@ export default class CreateUser extends Component {
       username: this.state.username,
     };
     console.log(newUser);
-    axios.post('http://localhost:5000/users/add', newUser)
+    axios.post('https://localhost:5000/users/add', newUser)
   .then(res => console.log(res.data));
-    
     this.setState({
       username: ''
     })
